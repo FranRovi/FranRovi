@@ -33,4 +33,12 @@ findAndPrintMax([1,3,5,7,9]);
 
 console.log("_".repeat(80));
 console.log("Exercise 4");
-// Create and array, find and print the largest element
+// Create and array with all the odd integers between 1 and 255 (inclusive)
+function arrayWithOdds(){
+    let oddArr = [];
+    for(let i=1;i<=10;i+2){
+        oddArr.push(i);
+    }
+    console.log(oddArr);
+}
+arrayWithOdds();
