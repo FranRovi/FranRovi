@@ -101,9 +101,75 @@ SwapStringForNegativesValues([1,-1,2,-2,3,-3]);
 
 console.log("_".repeat(80));
 console.log("Exercise 8");
+// Print odds integers from 1 to 255 (included);
+function printOdds1To255(){
+    for (let i=1;i<=255;i+=2){
+        console.log(i);
+    }
+}
+printOdds1To255();
 
 console.log("_".repeat(80));
 console.log("Exercise 9");
+// Iterate through a given array, printing each value;
+function iterateAndPrintArr(arr){
+    for (let i=0;i<arr.length;i++){
+        console.log(arr[i]);
+    }
+}
+iterateAndPrintArr([1,"Hello","World", true, 3.14])
 
 console.log("_".repeat(80));
 console.log("Exercise 10");
+// Analyze an array's value and print the average;
+function getAndPrintAverage(arr){
+    let totalSum = 0;
+    let numElements = 0;
+    for (let i=0; i<arr.length;i++){
+        if (typeof(arr[i]) === "number") {
+            totalSum += arr[i];
+            numElements++;
+        }
+    }
+    console.log("average considering ONLY numbers: " + totalSum / numElements);
+    // console.log("average: " + totalSum / arr.length);
+}
+getAndPrintAverage([5, 10, 15]);
+getAndPrintAverage([5, "Hello", 10, "World", 15]);
+
+console.log("_".repeat(80));
+console.log("Exercise 11");
+// Square each value in a given array, returning the same array with changed values;
+function squareTheValues(arr){
+    for (let i=0;i<arr.length;i++){
+        arr[i] = arr[i] * arr[i];
+    }
+    return arr;
+}
+console.log(squareTheValues([1,2,3,4]));
+
+console.log("_".repeat(80));
+console.log("Exercise 12");
+// Return the given array, after setting any given values to zero;
+function zeroOutNegativeNums(arr){
+    for (let i =0; i<arr.length;i++){
+        if (arr[i] < 0) {
+            arr[i] = 0; 
+        }
+    }
+    return arr;
+}
+console.log(zeroOutNegativeNums([1,-1,2,-2,3,-3]));
+
+console.log("_".repeat(80));
+console.log("Exercise 13");
+// Given and array, move all values forward by one index, dropping the first and leaving a '0' value at the end;
+
+function shiftArrayValues(arr){
+    for (let i=1;i<arr.length;i++){
+        arr[i-1] = arr[i];
+    }
+    arr[arr.length-1] = 0;
+    return arr;
+}
+console.log(shiftArrayValues([1,2,4,6,8]));
