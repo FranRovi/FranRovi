@@ -12,7 +12,7 @@ function lastDigitofAToTheB(num1, num2){
         }
         num2--
     }
-    return answer
+    return answer;
 }
 console.log("_".repeat(80));
 console.log(`Executing: lastDigitofAToTheB(num1, num2)`);
@@ -41,11 +41,11 @@ function clockHandAngles(seconds){
 }
 
 console.log("_".repeat(80));
-console.log(`Executing: clockHandAngles(seconds)`);
+console.log(`Executing: clockHandAngles(150)`);
 console.log("Expected: ", );
 console.log("Actual:", clockHandAngles(150));
 
 console.log("_".repeat(80));
-console.log(`Executing: clockHandAngles(seconds)`);
+console.log(`Executing: clockHandAngles(25600)`);
 console.log("Expected: ", );
 console.log("Actual:", clockHandAngles(25600));

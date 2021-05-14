@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Calculation Details</title>
+        {% load static %}
+        <link rel= "stylesheet" href="{% static 'css/severanceCalculations.css' %}">
+    </head>
+    <body>
+        <div class="row">
+            <div>
+                <h2>Calculation Details</h2>
+                <h5>Name: {{one_calc.name}} </h5>
+                <h5>Salary: {{one_calc.salary}} </h5>
+                <h5>Start Date: {{one_calc.start_date}} </h5>
+                <h5>End Date: {{one_calc.end_date}} </h5>
+                <h5>Reason for Termination: {{one_calc.reason_for_termination}} </h5>
+                <h5>Jurisdiction: {{one_calc.jurisdiction}} </h5>
+            </div>
+            <div>
+                <h2>Calculations Results</h2>
+                <h5>Employment relationship duration: {{one_calc.relation_duration_years}} years, {{one_calc.relation_duration_months}} months, {{one_calc.relation_duration_days}} days</h5>
+                <h5>Seniority Compensation: {{one_calc.comp_seniority}} </h5>
+                <h5>Advance Notice Compensation: {{one_calc.comp_advance_notice}} </h5>
+                <h4>TOTAL COMPENSATION: {{one_calc.total}} </h4>
+            </div>
+        </div>
+        <div class="row">
+            <form action="/dashboard" method="post">
+                {% csrf_token %}
+                <button type="submit">Go Back</button>
+            </form>
+            <form action="/calculationEdit/{{one_calc.id}}" method="post">
+                {% csrf_token %}
+                <button type="submit">Edit</button>
+            </form>
+            <form action="/calculationDelete/{{one_calc.id}}" method="post">
+                {% csrf_token %}
+                <button type="submit">Delete</button>
+            </form>
+        </div>
+    </body>
+</html>

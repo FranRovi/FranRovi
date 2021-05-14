@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login</title>
+        {% load static %}
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel= "stylesheet" href="{% static 'css/severanceCalculations.css' %}">
+    </head>
+    <body">
+        <section class="d-flex justify-content-around">
+            <div class="container-xl row align-items-center no-gutters">
+                <div class="col-lg-5">
+                    <img src="https://i1.wp.com/www.hrone.com/wp-content/uploads/2018/01/Termination-e1571736403654.jpg?resize=934%2C462&ssl=1" alt="" class="img-fluid">
+                </div>
+                <div class="col-lg-7 px-3">
+                    <h2 class="my-3">Sign into your account</h2>
+                    {% if messages %}
+                    <ul>
+                        {% for message in messages %}
+                            <li{% if message.tags %} class="{message.tags} error-messages"{% endif %}>{{message}}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                    <form action="process/login" method="post">
+                        {% csrf_token %}
+                        <div>
+                            <label class="my-3">Email</label><br>
+                            <input type="email" name="email" placeholder="Email address" class="form-control">
+                        </div>
+                        <div>
+                            <label class="my-3">Password</label>
+                            <input type="password" name="password" placeholder="Password"  class="form-control"> 
+                        </div>
+                        <div>
+                            <button type="submit" class="btn-style mt-5">Login</button>
+                        </div>
+                    </form>
+                    <p class="my-4">Not register yet? No problem, just click on the link <a href="/register"> Register Here</a><p>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>
