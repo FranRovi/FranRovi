@@ -5,6 +5,7 @@ urlpatterns = [
     path("", views.login),
     path("register", views.register),
     path("dashboard", views.dashboard),
+    path("calculationNew", views.calculationNew),
     path("calculationDetails/<int:sev_id>", views.detailsCalculation),
     path("calculationEdit/<int:sev_id>", views.editCalculation),
     path("calculationDelete/<int:sev_id>", views.deleteCalculation),

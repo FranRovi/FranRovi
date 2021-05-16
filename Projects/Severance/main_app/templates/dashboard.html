@@ -18,7 +18,7 @@
         <div>
             <ul class="row-nav">
                 <div class="row_links col">
-                    <li class="align-items-center mt-2"><a href="#">Make a new calculation</a></li>
+                    <li class="align-items-center mt-2"><a href="/calculationNew">Make a new calculation</a></li>
                     <form action="/logout" method="post">
                         {% csrf_token %}
                         <button type="submit" class="btn btn-outline-light">Log Out</button>
@@ -27,13 +27,15 @@
             </ul>
         </div>
     </nav>
-    <div class="bg-white display_calc">
-        <h3 class="my-5">Previous Calculations</h3>
-            <ol>
-            {% for severance in logged_user.severances.all %}
-            <li><a href="/calculationDetails/{{severance.id}}" class="">{{severance.name}}</a></li>
-            {% endfor %}
-            </ol>
+    <div class="container col-lg-7 bg-white border-style">
+        <div>
+            <h3 class="my-5">Previous Calculations</h3>
+                <ol class="text-center">
+                {% for severance in logged_user.severances.all %}
+                <li><a href="/calculationDetails/{{severance.id}}">{{severance.name}}</a></li>
+                {% endfor %}
+                </ol>
+            </div>
         </div>
     </div>
     <!-- <h1>Dashboard</h1>
@@ -44,7 +46,7 @@
     {% endif %}
     <h3> Temperature in {{weather.name}} is {{weather.main.temp}} F.</h3>
     <h4>Min: {{weather.main.temp_min}} F.</h4>
-    <h4>Max: {{weather.main.temp_max}} F.</h4> -->
+    <h4>Max: {{weather.main.temp_max}} F.</h4>
     
     <div class="row">
         <div>
@@ -83,6 +85,6 @@
                 <button type="submit">Submit</button>
             </form>
         </div>
-    </div>
+    </div> -->
 </body>
 </html>

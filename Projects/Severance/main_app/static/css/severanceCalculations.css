@@ -36,13 +36,44 @@ body {
     font-weight:bold;
 }
 
+.btn-style-green{
+    background-color:rgb(3, 96, 3);
+    color:white;
+    border:none;
+    outline:none;
+    height: 50px;
+    width: 100%;
+    font-weight:bold;
+}
+
+.btn-style-red{
+    background-color:rgba(206, 1, 1, 0.913);
+    color:white;
+    border:none;
+    outline:none;
+    height: 50px;
+    width: 100%;
+    font-weight:bold;
+}
+
 .btn-style:hover{
     background-color: white;
     color: black;
     border: 1px solid black;
 }
+.btn-style-green:hover{
+    background-color: white;
+    color: rgb(3, 96, 3);
+    border: 1px solid rgb(3, 96, 3);
+}
+.btn-style-red:hover{
+    background-color: white;
+    color: rgba(206, 1, 1, 0.913);
+    border: 1px solid rgba(206, 1, 1, 0.913);
+}
+
 .error-messages{
-    color:red;
+    color:rgba(206, 1, 1, 0.913);
     list-style: none;
 }
 /**/
@@ -56,6 +87,9 @@ nav {
     display:flex;
     align-items:center;
     justify-content:space-between;
+}
+nav a:hover{
+    color:white;
 }
 ul {
     list-style-type: none;
@@ -80,7 +114,7 @@ ul a {
     width: 200px;
     height: 200px;
 }
-.row{
+.simple-row{
     display: flex;
     /* justify-content: space-around; */
     /* align-items: center; */
@@ -96,4 +130,12 @@ ul a {
 .display_calc{
     width:100%;
     text-align:center;
+}
+.border-style{
+    border-radius: 25px;
+    box-shadow: 12px 12px 24px gray;
+}
+ol li::marker {
+    color: rgb(20, 66, 136);
+    font-weight: bold;
 }

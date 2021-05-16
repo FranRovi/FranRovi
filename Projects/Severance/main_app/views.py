@@ -6,6 +6,9 @@ import requests
 
 # Create your views here.
 
+def calculationNew(request):
+    return render(request, "calculationNew.html")
+
 def login(request):
     return render(request, "login.html")
 
@@ -44,10 +47,13 @@ def registerProcess(request):
         return redirect("/dashboard")
 
 def dashboard(request):
+    print("dashboard function");
     user = User.objects.get(id=request.session["user_id"])
     zipcode = user.zip_code
-    r = requests.get(f"http://api.openweathermap.org/data/2.5/weather?zip={zipcode},&appid=5bcea18b7edb168213127eaa32f6b8b3&units=imperial")
-    # print(r.json())
+    apiKey = "9093213504e01669df95e3b641788850"
+    print(apiKey);
+    r = requests.get(f"http://api.openweathermap.org/data/2.5/weather?zip={zipcode},&appid={apiKey}&units=imperial")
+    print(r.json())
     context={
         "logged_user": user,
         "weather":r.json()
