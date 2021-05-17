@@ -27,68 +27,63 @@
                 </ul>
             </div>
         </nav>
-        <div class="container pt-5 col-lg-7 bg-white border-style">        
-            <div>
-                <h3>Edit a Calculation</h3>
-                {% if messages %}
-                <ul>
-                    {% for message in messages %}
-                        <li{% if message.tags %} class="{message.tags}"{% endif %}>{{message}}</li>
-                    {% endfor %}
-                </ul>
-                {% endif %}
-                <form action="/process/edit/{{edit_calc.id}}" method="post">
-                    {% csrf_token %}
-                    <div>
-                        <label>Name</label>
-                        <input type="text" name="name" placeholder="{{edit_calc.name}}" class="form-control">
-                    </div>
-                    <div>
-                        <label>Month Income / Salary</label>
-                        <input type="number" step="0.01" name="salary" placeholder="{{edit_calc.salary}}" class="form-control">
-                    </div>
-                    <div>
-                        <label>Start Date</label>
-                    <input type="date" name="start_date" placeholder="{{edit_calc.start_date | date:"Y-m-d"}}" class="form-control">
-                    </div>
-                    <div>
-                        <label>End Date</label>
-                        <input type="date" name="end_date" placeholder="{{edit_calc.end_date | date:"Y-m-d"}}" class="form-control">
-                    </div>
-                    <div>
-                        <label>Reason for employment termination</label>
-                        <select name="reason_employ_term" class="form-control">
-                            <option value="" selected>{{edit_calc.reason_for_termination}}</option>
-                            <option value="Resignation">Resignation</option>
-                            <option value="Wrongful dismissal">Wrongful Dismissal</option>
-                    </select>
-                    </div>
-                    <div>
-                        <label>Jurisdiction</label><br>
-                        <select name="jurisdiction" class="form-control">
-                            <option value="" selected >{{edit_calc.jurisdiction}}</option>
-                            <option value="Capital City">Capital City</option>
-                            <option value="Buenos Aires Province">Buenos Aires Province</option>
-                    </select>
-                    </div>
-                    <div>
-                        <button type="submit" class="btn-style-green mt-5 mb-2 btn-success">Submit</button>
-                    </div>
-                    <div>
-                        <form action="/calculationEdit/{{edit_calc.id}}" method="post">
-                            {% csrf_token %}
-                            <button type="submit" class="btn-style-red mt-2 mb-5 btn-danger">Reset Values</button>
-                        </form> 
-                    </div>
-                </form>
-                <!-- 
-                    <button type="submit">Reset Values</button>
-                    -->
-                
-                <!-- <form action="/dashboard" method="post">
-                    {% csrf_token %}
-                    <button type="submit">Go to Dashboard</button>
-                </form> -->
-
+        <section>
+            <div class="container pt-5 col-lg-7 bg-white border-style">
+                <div class="col-lg-5">       
+                    <h3>Edit a Calculation</h3>
+                    {% if messages %}
+                    <ul>
+                        {% for message in messages %}
+                            <li{% if message.tags %} class="{message.tags} error-messages"{% endif %}>{{message}}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                    <form action="/process/edit/{{edit_calc.id}}" method="post">
+                        {% csrf_token %}
+                        <div>
+                            <label>Name</label>
+                            <input type="text" name="name" placeholder="{{edit_calc.name}}" class="form-control">
+                        </div>
+                        <div>
+                            <label>Month Income / Salary</label>
+                            <input type="number" step="0.01" name="salary" placeholder="{{edit_calc.salary}}" class="form-control">
+                        </div>
+                        <div>
+                            <label>Start Date</label>
+                        <input type="date" name="start_date" placeholder="{{edit_calc.start_date | date:"Y-m-d"}}" class="form-control">
+                        </div>
+                        <div>
+                            <label>End Date</label>
+                            <input type="date" name="end_date" placeholder="{{edit_calc.end_date | date:"Y-m-d"}}" class="form-control">
+                        </div>
+                        <div>
+                            <label>Reason for employment termination</label>
+                            <select name="reason_employ_term" class="form-control">
+                                <option value="" selected>{{edit_calc.reason_for_termination}}</option>
+                                <option value="Resignation">Resignation</option>
+                                <option value="Wrongful dismissal">Wrongful Dismissal</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label>Jurisdiction</label><br>
+                            <select name="jurisdiction" class="form-control">
+                                <option value="" selected >{{edit_calc.jurisdiction}}</option>
+                                <option value="Capital City">Capital City</option>
+                                <option value="Buenos Aires Province">Buenos Aires Province</option>
+                            </select>
+                        </div>
+                        <div>
+                            <button type="submit" class="btn-style-green mt-5 mb-2 btn-success">Submit</button>
+                        </div>
+                        <div>
+                            <form action="/calculationEdit/{{edit_calc.id}}" method="post">
+                                {% csrf_token %}
+                                <button type="submit" class="btn-style-red mt-2 mb-5 btn-danger">Reset Values</button>
+                            </form>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
     </body>
 </html>

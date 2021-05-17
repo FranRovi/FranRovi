@@ -27,81 +27,83 @@
                 </ul>
             </div>
         </nav>
-        <div class="container-xl pt-5 col-lg-7 bg-white border-style">        
-            <div class="simple-row">
-                <table class="mt-5 w-75 table table-bordered table table-striped table-responsive-lg">
-                    <thead class="table-dark">
-                        <tr>
-                            <th scope="col" colspan="2">Calculation Details</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Name:</td>
-                            <td>{{one_calc.name}}</td>
-                        </tr>
-                        <tr>
-                            <td>Salary:</td>
-                            <td>{{one_calc.salary}}</td>
-                        </tr>
-                        <tr>
-                            <td>Start Date:</td>
-                            <td>{{one_calc.start_date}}</td>
-                        </tr>
-                        <tr>
-                            <td>End Date:</td>
-                            <td>{{one_calc.end_date}}</td>
-                        </tr>
-                        <tr>
-                            <td>Reason for Termination:</td>
-                            <td>{{one_calc.reason_for_termination}}</td>
-                        </tr>
-                        <tr>
-                            <td>Jurisdiction:</td>
-                            <td>{{one_calc.jurisdiction}}</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <table class="mt-5 w-75 table table-bordered table table-striped table-responsive-lg">
-                    <thead class="table-dark">
-                        <tr>
-                            <th scope="col" colspan="2">Calculations Results</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Employment relationship duration:</td>
-                            <td>{{one_calc.relation_duration_years}} years, {{one_calc.relation_duration_months}} months, {{one_calc.relation_duration_days}} days</td>
-                        </tr>
-                        <tr>
-                            <td>Seniority Compensation:</td>
-                            <td>{{one_calc.comp_seniority}} </td>
-                        </tr>
-                        <tr>
-                            <td>Advance Notice Compensation:</td>
-                            <td>{{one_calc.comp_advance_notice}}</td>
-                        </tr>
-                        <tr>
-                            <td>TOTAL COMPENSATION:</td>
-                            <td>{{one_calc.total}} </td>
-                        </tr>
-                    </tbody>
-                </table>
+        <section class="d-flex justify-content-center">
+            <div class="container-xl pt-5 col-lg-11 bg-white border-style">        
+                <div class="simple-row">
+                    <table class="mt-5 mr-2 w-75 table table-bordered table table-striped table-responsive-lg">
+                        <thead class="table-dark">
+                            <tr>
+                                <th scope="col" colspan="2">Calculation Details</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Name:</td>
+                                <td>{{one_calc.name}}</td>
+                            </tr>
+                            <tr>
+                                <td>Salary:</td>
+                                <td>{{one_calc.salary}}</td>
+                            </tr>
+                            <tr>
+                                <td>Start Date:</td>
+                                <td>{{one_calc.start_date}}</td>
+                            </tr>
+                            <tr>
+                                <td>End Date:</td>
+                                <td>{{one_calc.end_date}}</td>
+                            </tr>
+                            <tr>
+                                <td>Reason for Termination:</td>
+                                <td>{{one_calc.reason_for_termination}}</td>
+                            </tr>
+                            <tr>
+                                <td>Jurisdiction:</td>
+                                <td>{{one_calc.jurisdiction}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="mt-5 w-75 table table-bordered table table-striped table-responsive-lg">
+                        <thead class="table-dark">
+                            <tr>
+                                <th scope="col" colspan="2">Calculations Results</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Employment relationship duration:</td>
+                                <td>{{one_calc.relation_duration_years}} years, {{one_calc.relation_duration_months}} months, {{one_calc.relation_duration_days}} days</td>
+                            </tr>
+                            <tr>
+                                <td>Seniority Compensation:</td>
+                                <td>{{one_calc.comp_seniority}} </td>
+                            </tr>
+                            <tr>
+                                <td>Advance Notice Compensation:</td>
+                                <td>{{one_calc.comp_advance_notice}}</td>
+                            </tr>
+                            <tr>
+                                <td class="h4 font-weight-bolder">TOTAL COMPENSATION:</td>
+                                <td class="h4 font-weight-bolder">{{one_calc.total}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="simple-row justify-content-center">
+                    <form action="/calculationEdit/{{one_calc.id}}" method="post">
+                        {% csrf_token %}
+                        <div class="mr-3 text-center">
+                            <button type="submit" class="btn-style my-5 mx-2 form-control">Edit Calculation</button>
+                        </div>
+                    </form>
+                    <form action="/calculationDelete/{{one_calc.id}}" method="post">
+                        {% csrf_token %}
+                        <div class="text-center">
+                            <button type="submit" class="btn-style-red my-5 mx-2">Delete Calculation</button>
+                        </div>
+                    </form>
+                </div>
             </div>
-            <div class="simple-row text-center">
-                <form action="/calculationEdit/{{one_calc.id}}" method="post">
-                    {% csrf_token %}
-                    <div>
-                        <button type="submit" class="btn-style my-5 mx-2 form-control">Edit Calculation</button>
-                    </div>
-                </form>
-                <form action="/calculationDelete/{{one_calc.id}}" method="post">
-                    {% csrf_token %}
-                    <div>
-                        <button type="submit" class="btn-style-red my-5 mx-2">Delete Calculation</button>
-                    </div>
-                </form>
-            </div>
-        </div>
+        </section>
     </body>
 </html>

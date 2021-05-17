@@ -27,64 +27,30 @@
             </ul>
         </div>
     </nav>
-    <div class="container col-lg-7 bg-white border-style">
-        <div>
-            <h3 class="my-5">Previous Calculations</h3>
-                <ol class="text-center">
-                {% for severance in logged_user.severances.all %}
-                <li><a href="/calculationDetails/{{severance.id}}">{{severance.name}}</a></li>
-                {% endfor %}
-                </ol>
+    <section>
+        <div class="container col-lg-9 bg-white border-style">
+            <div>
+                {% if logged_user.nickname %}
+                <h2 class="mt-4">Hello, {{logged_user.nickname}}</h2>
+                {% else %}
+                <h2 class="mt-4">Hello {{logged_user.first_name}}</h2>
+                {% endif %}
+                <h3 class="my-5">Previous Calculations</h3>
+                    <ol class="text-center">
+                    {% for severance in logged_user.severances.all %}
+                    <li><a href="/calculationDetails/{{severance.id}}">{{severance.name}}</a></li>
+                    {% endfor %}
+                    </ol>
+                </div>
             </div>
         </div>
-    </div>
-    <!-- <h1>Dashboard</h1>
-    {% if logged_user.nickname %}
-    <h2>Hello {{logged_user.nickname}}</h2>
-    {% else %}
-    <h2>Hello {{logged_user.first_name}}</h2>
-    {% endif %}
+    </section>
+    <!-- 
+    Example code to use a weather API  
+    <h1>Open Weather API</h1>
     <h3> Temperature in {{weather.name}} is {{weather.main.temp}} F.</h3>
     <h4>Min: {{weather.main.temp_min}} F.</h4>
     <h4>Max: {{weather.main.temp_max}} F.</h4>
-    
-    <div class="row">
-        <div>
-        
-        <div>
-            <h3>Create a new calculation</h3>
-            {% if messages %}
-            <ul>
-                {% for message in messages %}
-                    <li{% if message.tags %} class="{message.tags}"{% endif %}>{{message}}</li>
-                {% endfor %}
-            </ul>
-            {% endif %}
-            <form action="/process/calculation" method="post">
-                {% csrf_token %}
-                <label>Name</label><br>
-                <input type="text" name="name"><br>
-                <label>Month Income / Salary</label><br>
-                <input type="number" step="0.01" name="salary"><br>
-                <label>Start Date</label><br>
-                <input type="date" name="start_date"><br>
-                <label>End Date</label><br>
-                <input type="date" name="end_date"><br>
-                <label>Reason for employment termination</label><br>
-                <select name="reason_employ_term">
-                    <option value="" selected data-default class="drop_down_placeholder">-select a termination-</option>
-                    <option value="Resignation">Resignation</option>
-                    <option value="Wrongful dismissal">Wrongful Dismissal</option>
-                </select><br>
-                <label>Jurisdiction</label><br>
-                <select name="jurisdiction">
-                    <option value="" selected data-default class="drop_down_placeholder">-select a jurisdiction-</option>
-                    <option value="Capital City">Capital City</option>
-                    <option value="Buenos Aires Province">Buenos Aires Province</option>
-                </select><br>
-                <button type="submit">Submit</button>
-            </form>
-        </div>
-    </div> -->
+    -->
 </body>
 </html>

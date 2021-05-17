@@ -50,7 +50,8 @@ def dashboard(request):
     print("dashboard function");
     user = User.objects.get(id=request.session["user_id"])
     zipcode = user.zip_code
-    apiKey = "9093213504e01669df95e3b641788850"
+    # add your personal Api key as a string
+    apiKey = ""
     print(apiKey);
     r = requests.get(f"http://api.openweathermap.org/data/2.5/weather?zip={zipcode},&appid={apiKey}&units=imperial")
     print(r.json())
@@ -61,7 +62,6 @@ def dashboard(request):
     return render(request, "dashboard.html",context)
 
 def calculationProcess(request):
-    # print(request.POST)
     errors = Severance.objects.validate_severance(request.POST)
     if len(errors) > 0:
         for key, value in errors.items():

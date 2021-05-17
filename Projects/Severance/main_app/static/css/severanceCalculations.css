@@ -8,18 +8,12 @@ body {
     background-color: lightgray;
     height:100%;
     margin: auto 0;
-    /* width:90%; */
 }
-/* img {
-    height: 100%;
-} */
-/* li{
-    color:red;
-
-/*
-.drop_down_placeholder{
-    color: lightgray;
-} */
+section {
+    width:95%;
+    margin-top: 10%;
+    min-height:75%;
+}
 .row{
     display:flex;
     background-color: white;
@@ -116,6 +110,7 @@ ul a {
 }
 .simple-row{
     display: flex;
+    /* margin: 0 auto; */
     /* justify-content: space-around; */
     /* align-items: center; */
 }
@@ -138,4 +133,7 @@ ul a {
 ol li::marker {
     color: rgb(20, 66, 136);
     font-weight: bold;
+}
+.bcg-image{
+    background-image: url("https://i1.wp.com/www.hrone.com/wp-content/uploads/2018/01/Termination-e1571736403654.jpg?resize=934%2C462&ssl=1");
 }
