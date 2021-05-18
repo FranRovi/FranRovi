@@ -1,0 +1,56 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: Tahoma, Verdana, Geneva, sans-serif;
+}
+nav {
+    height:100px;
+    background-color: #3a3a3a;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    color: white;
+}
+nav h1, nav span {
+    width:200px;
+    /* word-spacing: 6px; */
+    letter-spacing: 4px;
+    font-family:'Rock Salt', cursive;
+    font-size: 35px;
+    font-weight:bolder;
+}
+a {
+    color:white;
+}
+.bgc_img{
+    background-image: url("https://www.noesnest.com/wp-content/uploads/sites/33/2020/03/san-francisco-at-night-1024x683.jpg");
+    background-size: cover;
+    height:100%;
+}
+.no_color{
+    height:50%;
+}
+.light_color{
+    background-color: #f2f2f2;
+    height:50%;
+}
+.row_header{
+    display: flex;
+    width:100%;
+    color:white;
+}
+.header_links{
+    color:white;
+    list-style-type: none;
+}
+.row_links{
+    display: flex;
+
+}
+.col{
+    flex:1;
+}
+.m-right-header{
+    margin-right:50%;
+}
