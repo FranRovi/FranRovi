@@ -24,18 +24,14 @@ console.log("Actual:", reverseArray([5,4,3,2,1]));
 
 function removeNegatives(arr){
     let myArr = arr;
-    let negativeNums = 0;
+    let positiveArr = [];
     for (let i = 0; i < myArr.length; i++){
-        if (myArr[i] < 0) {
-            temp = myArr[i];
-            myArr[i] = myArr[i+1];
-            myArr[i+1] = temp;
-            i--
-            console.log("true")
-            // negativeNums++ 
+        if (myArr[i] >= 0) {
+            positiveArr.push(myArr[i]); 
         }
     }
-    console.log(negativeNums);
+    // console.log(positiveArr);
+    myArr = positiveArr;
     return myArr;
 }
 console.log("_".repeat(80));
@@ -43,17 +39,25 @@ console.log(`Executing: removeNegatives(arr)`);
 console.log("Expected:[5,3,1]");
 console.log("Actual:", removeNegatives([5,-4,3,-2,1]));
 
-// Given an array and an additional value, insert this value at the beginning of the
-// array. Do this without using any built-in array methods
+// You are given an array with heights of consecutive buildings in the city. For example,
+// [-1,7,3] would represent three buildings: first is actually below street leve, second is
+// seven stories high, and third is three sotries high (but hidden behind the seven-story
+// building) You are situated at street level. Return an array containing heights of the
+// buildings you can see. Given [1,-1,7,3] return [1,7].
 
-// function skylineHeigths(arr){
-//     let myArr = [num];
-//     for (let i = 0; i < arr.length; i++){
-//         myArr[i+1] = arr[i];
-//     }
-//     return myArr;
-// }
-// console.log("_".repeat(80));
-// console.log(`Executing: skylineHeigths(arr)`);
-// console.log("Expected:[5,4,3,2,1]");
-// console.log("Actual:", skylineHeigths([4,3,2,1]));
+
+function skylineHeigths(arr){
+    let myArr = [];
+    let buildingHeight = 0;
+    for (let i = 0; i < arr.length; i++){
+        if(arr[i] > buildingHeight){
+            myArr.push(arr[i]);
+            buildingHeight = arr[i];
+        }
+    }
+    return myArr;
+}
+console.log("_".repeat(80));
+console.log(`Executing: skylineHeigths(arr)`);
+console.log("Expected:[1,7]");
+console.log("Actual:", skylineHeigths([1,-1,7,3]));
