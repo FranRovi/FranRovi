@@ -61,3 +61,53 @@ console.log("_".repeat(80));
 console.log(`Executing: skylineHeigths(arr)`);
 console.log("Expected:[1,7]");
 console.log("Actual:", skylineHeigths([1,-1,7,3]));
+
+// Given a sorted array and a value, return whether that value is present in the array.
+// Do not sequentially iterate the entire array. Instead, "divide and conquer", taking 
+// advantage of the fact that the array is sorted.
+
+function binarySearch(arr, val){
+    let leftIdx = 0;
+    let rightIdx = arr.length-1;
+    // console.log("leftIdx: " + leftIdx);
+    // console.log("rightIdx: " + rightIdx);
+
+    while(leftIdx <= rightIdx) {
+        let midpointIdx = leftIdx + Math.floor((rightIdx - leftIdx) / 2); 
+        // console.log("midpointIdx: " + midpointIdx);
+        let midpointVal = arr[midpointIdx];
+        // console.log("midpointVal: " + midpointVal);
+        
+        if (midpointVal === val) {
+            return `Element found at position ${midpointIdx}`
+        } else if (val < midpointVal) {
+            rightIdx = midpointIdx - 1;
+        } else {
+            leftIdx = midpointIdx + 1;
+        }
+        // console.log("leftIdx: " + leftIdx);
+        // console.log("rightIdx: " + rightIdx);
+        // console.log("midpointVal: " + midpointVal);
+    }
+    return `-1. Elemenet ${val} is NOT present in the array provided`;
+}
+console.log("_".repeat(80));
+console.log(`Executing: binarySearch(arr)`);
+console.log("Expected: value 7 is at index 6 of the array provided");
+console.log("Actual:", binarySearch([1,2,3,4,5,6,7,8,9,10], 7));
+
+console.log("_".repeat(80));
+console.log(`Executing: binarySearch(arr)`);
+console.log("Expected: Element 7 is NOT present in the array provided");
+console.log("Actual:", binarySearch([1,2,3,4,5,6,8,9,10,11], 7));
+
+// You will be given a numerical array tht has first been sorted, then rotated by an
+// unknown amount. Find and return the minimum value in the array.
+
+// function minOfSortedRotated(arr, num){
+    
+// }
+// console.log("_".repeat(80));
+// console.log(`Executing: minOfSortedRotated(arr, num)`);
+// console.log("Expected:[]");
+// console.log("Actual:", minOfSortedRotated([1,2,3,4,5,6]));
