@@ -9,7 +9,7 @@ nav {
     background-color: #3a3a3a;
     display:flex;
     align-items:center;
-    justify-content:space-between;
+    justify-content:space-evenly;
     color: white;
 }
 nav h1, nav span {
@@ -20,25 +20,18 @@ nav h1, nav span {
     font-size: 35px;
     font-weight:bolder;
 }
-nav a {
-    color:white;
-}
-nav a:visited {
-    color:white;
-}
-/* .project_image{
-    height:350px;
-    margin:10px 5px 10px 10px;
-    filter: grayscale(100%);
-    transition: filter 0.25s;
-} */
 
-/* .project_image:hover{
-    height:400px;
-    margin:10px 5px 10px 10px;
-    filter: grayscale(0%);
-} */
-
+#contact_me ul li a:link {
+    color: black;
+}
+/* visited link */
+#contact_me ul li a:visited {
+    color: black;
+}
+/* mouse over link */
+#contact_me ul li a:hover {
+    color: black;
+}
 .bgc_img{
     background-image: url("https://www.noesnest.com/wp-content/uploads/sites/33/2020/03/san-francisco-at-night-1024x683.jpg");
     background-size: cover;
@@ -48,7 +41,7 @@ nav a:visited {
     height:65%;
 }
 .contact_me{
-    height:33%;
+    height:42%;
 }
 .light_color{
     background-color: #f2f2f2;
@@ -81,6 +74,7 @@ nav a:visited {
     margin-right: 5px;
 }
 a:link {
+    /* color: black; */
     color: black;
 }
 
@@ -88,10 +82,9 @@ a:link {
 a:visited {
     color: black;
 }
-
 /* mouse over link */
 a:hover {
-    color: rgb(14, 52, 148);
+    color: black;
 }
 .wrapper{
     position: relative;
@@ -99,26 +92,26 @@ a:hover {
     display:flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    overflow:hidden;
+    align-items: center;
 }
-
 .wrapper .box{
     position: relative;
     width: 300px;
     height: 300px;
-    overflow:hidden;
+    border-radius: 10px;
+    /* overflow:hidden; */
     flex-wrap: wrap;
     transition: 0.5s;
     filter: grayscale(100%);
     transition: filter 0.25s;
 }
-
 .wrapper .box:hover{
     z-index: 1;
     transform: scale(1.25);
     box-shadow: 0 25px 40px black;
     filter: grayscale(0%);
 }
-
 .wrapper .box .imgBx{
     position: absolute;
     width: 100%;
@@ -126,7 +119,6 @@ a:hover {
     top:0;
     left: 0;
 }
-
 .wrapper .box .imgBx img{
     position: absolute;
     width: 100%;
@@ -135,7 +127,6 @@ a:hover {
     left: 0;
     object-fit: cover;
 }
-
 .wrapper .box .content{
     position: absolute;
     width: 100%;
@@ -148,33 +139,21 @@ a:hover {
     align-items: flex-end;
     color:white;
 }
-
 .wrapper .box .content h3{
     color:white;
     text-decoration: underline;
     /* text-transform: uppercase; */
     transform: translateY(200px);   
 }
-
 .wrapper .box:hover .content h3{
-
     transform: translateY(0);
     transition-delay:0.2s;   
 }
-
 .hide{
     display:none;
 }
 
-/* .wrapper .box .content h3{
-    color:white;
-    text-decoration: underline;
-    /* text-transform: uppercase;
-    transform: translateY(200px);   
-}
-
-.wrapper .box:hover .content h3{
-
-    transform: translateY(0);
-    transition-delay:0.2s;   
+/* .button_prev .button_fwd {
+    height:25px;
+    width:25px;
 } */
