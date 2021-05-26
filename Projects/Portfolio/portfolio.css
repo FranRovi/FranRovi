@@ -1,9 +1,12 @@
+
+/* ******** Normalization ****** */
 *{
     margin:0;
     padding:0;
     box-sizing: border-box;
     font-family: Tahoma, Verdana, Geneva, sans-serif;
 }
+/* ******** Top Nav Bar ****** */
 nav {
     height:100px;
     background-color: #3a3a3a;
@@ -20,28 +23,56 @@ nav h1, nav span {
     font-size: 35px;
     font-weight:bolder;
 }
+h2 {
+    font-family:'Bowlby One SC', cursive;
+    text-align: center;
+    color:rgb(9, 56, 136);
+    letter-spacing: 2px;
+    word-spacing: 3px;
+    text-decoration: underline;
+}
+a:link.nav_link{
+    color: white;
+}
+a:visited.nav_link{
+    color: white;
+}
+a:hover.nav_link{
+    color: white;
+}
 
-#contact_me ul li a:link {
-    color: black;
-}
-/* visited link */
-#contact_me ul li a:visited {
-    color: black;
-}
-/* mouse over link */
-#contact_me ul li a:hover {
-    color: black;
-}
+/* ******** Body ****** */
 .bgc_img{
     background-image: url("https://www.noesnest.com/wp-content/uploads/sites/33/2020/03/san-francisco-at-night-1024x683.jpg");
     background-size: cover;
     height:100%;
 }
-.port_topic{
-    height:65%;
+.title{
+    text-decoration: underline;
+    text-transform: uppercase;
+    word-spacing: 3px;
+    letter-spacing: 2px;
+    text-align:center;
+    margin:10px auto;
 }
-.contact_me{
-    height:42%;
+.text_display{
+    padding: 5% 10%;
+    text-align:center;
+}
+.project_description{
+    text-indent: 25px;
+    text-align:justify;
+    margin-top:10px;
+    min-height:170px;
+}
+.port_about_me{
+    height:60%;
+}
+.port_project{
+    height:95%;
+}
+.port_contact_me{
+    height:50%;
 }
 .light_color{
     background-color: #f2f2f2;
@@ -77,7 +108,6 @@ a:link {
     /* color: black; */
     color: black;
 }
-
   /* visited link */
 a:visited {
     color: black;
@@ -85,75 +115,63 @@ a:visited {
 /* mouse over link */
 a:hover {
     color: black;
+    text-decoration:none;
 }
-.wrapper{
-    position: relative;
-    width: 85%;
-    display:flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+/* ******** Carousel ****** */
+.carousel{
     overflow:hidden;
-    align-items: center;
+    max-width:700px;
+    position:relative;
+    margin-left: 25%;
 }
-.wrapper .box{
-    position: relative;
-    width: 300px;
-    height: 300px;
-    border-radius: 10px;
-    /* overflow:hidden; */
-    flex-wrap: wrap;
-    transition: 0.5s;
-    filter: grayscale(100%);
-    transition: filter 0.25s;
-}
-.wrapper .box:hover{
-    z-index: 1;
-    transform: scale(1.25);
-    box-shadow: 0 25px 40px black;
-    filter: grayscale(0%);
-}
-.wrapper .box .imgBx{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top:0;
-    left: 0;
-}
-.wrapper .box .imgBx img{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top:0;
-    left: 0;
-    object-fit: cover;
-}
-.wrapper .box .content{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top:0;
-    left: 0;
-    z-index:1;
-    display:flex;
-    padding:20px;
-    align-items: flex-end;
-    color:white;
-}
-.wrapper .box .content h3{
-    color:white;
-    text-decoration: underline;
-    /* text-transform: uppercase; */
-    transform: translateY(200px);   
-}
-.wrapper .box:hover .content h3{
-    transform: translateY(0);
-    transition-delay:0.2s;   
-}
-.hide{
+.carousel .carousel_item, .carousel .item_hidden {
     display:none;
 }
+.carousel .item_visible {
+    display:block;
+    animation: fadeVisibility 0.5s;
+}
+.carousel .carousel_item img{
+    width: 100%;
+    height:auto;
+    max-width: 700px;
+    border: 1px solid black;
+}
+.carousel .carousel_actions{
+    display:flex;
+    width:100%;
+    justify-content: space-between;
+    position:absolute;
+    top:40%;
+    transform:translateY(-50%);
+}
+.carousel .carousel_actions button{
+    border-radius: 50px;
+    border:0;
+    width:30px;
+    height:30px;
+    font-weight: bold;
+    cursor:pointer;
+}
+.carousel .carousel_actions button#carousel_btn_previous{
+    margin-left: 10px;
+}
+.carousel .carousel_actions button#carousel_btn_next{
+    margin-right: 10px;
+}
 
-/* .button_prev .button_fwd {
-    height:25px;
-    width:25px;
-} */
+@keyframes fadeVisibility {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity:1;
+        transform: opacity linear;
+    }
+}
+
+/* ******** Footer ****** */
+footer {
+    background-color:#3a3a3a;
+    color:white;
+}
