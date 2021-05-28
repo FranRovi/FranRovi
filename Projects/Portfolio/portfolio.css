@@ -15,6 +15,9 @@ nav {
     justify-content:space-evenly;
     color: white;
 }
+/* nav h1{
+    padding-left:50px;
+} */
 nav h1, nav span {
     width:200px;
     /* word-spacing: 6px; */
@@ -22,6 +25,14 @@ nav h1, nav span {
     font-family:'Bowlby One SC', cursive;
     font-size: 35px;
     font-weight:bolder;
+}
+#resume{
+    margin-left: 45%;
+    padding:5px;
+    border-radius: 10px;
+    color:white;
+    background-color: rgb(9, 56, 136);
+    border: solid 2px #3a3a3a;
 }
 h2 {
     font-family:'Bowlby One SC', cursive;
@@ -55,27 +66,46 @@ a:hover.nav_link{
     text-align:center;
     margin:10px auto;
 }
+#profile_pic{
+    height: 300px;
+    border-radius: 50%;
+    border: solid 2px #3a3a3a;
+}
 .text_display{
     padding: 5% 10%;
     text-align:center;
+}
+.text_display_about_me{
+    padding: 5% 10%;
+    text-align:center;
+    width:75%;
+    font-size:1.5em;
+    line-height:1.9em;
+}
+.text_display_contact_me{
+    padding: 5% 10%;
+    text-align:center;
+    font-size:1.5em;
+    line-height:1.9em;
 }
 .project_description{
     text-indent: 25px;
     text-align:justify;
     margin-top:10px;
     min-height:170px;
+    font-size:1.2em;
 }
 .port_about_me{
     /* height:60%; */
-    max-height: 600px;
+    height: 600px;
 }
 .port_project{
     /* height:95%; */
-    max-height: 850px;
+    height: 920px;
 }
 .port_contact_me{
     /* height:50%; */
-    max-height: 500px;
+    height: 500px;
 }
 .light_color{
     background-color: #f2f2f2;
@@ -96,8 +126,10 @@ a:hover.nav_link{
 .col{
     flex:1;
 }
-.m-right-header{
-    margin-right:50%;
+.m-header{
+    margin: 10px 50% 0 10%;
+    /* margin-right:50%;
+    margin-left:15%; */
 }
 .ul_none{
     list-style-type: none;
@@ -123,9 +155,10 @@ a:hover {
 /* ******** Carousel ****** */
 .carousel{
     overflow:hidden;
-    max-width:700px;
+    max-width:800px;
     position:relative;
-    margin-left: 25%;
+    /* margin-left: 25%; */
+    margin: 0 auto;
 }
 .carousel .carousel_item, .carousel .item_hidden {
     display:none;
@@ -137,7 +170,7 @@ a:hover {
 .carousel .carousel_item img{
     width: 100%;
     height:auto;
-    max-width: 700px;
+    max-width: 800px;
     border: 1px solid black;
 }
 .carousel .carousel_actions{
@@ -177,4 +210,7 @@ a:hover {
 footer {
     background-color:#3a3a3a;
     color:white;
+    height:50px;
+    padding-top:10px;
+    font-size:1.1em;
 }
