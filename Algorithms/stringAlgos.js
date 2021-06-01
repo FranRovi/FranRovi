@@ -22,9 +22,10 @@ console.log("Actual:", arrs2Map(["abc", 3, "yo"], [42, "wassup", true]));
 
 function invertHash(hash){
     let invertHash = {};
-    for (let i=0; i<hash.length; i++){
-        invertHash[hash[i]] = 0;
+    for (let element in hash){
+        invertHash[hash[element]] = element;
     }
+    // console.log(hash);
     return invertHash;
 }
 console.log("_".repeat(80));
@@ -32,16 +33,21 @@ console.log(`Executing: invertHash(hash)`);
 console.log("Expected:{ 'Zaphod': 'name', 2: 'numHeads'}");
 console.log("Actual:", invertHash({"name": "Zaphod", "numHeads": 2}));
 
+console.log("_".repeat(80));
+console.log(`Executing: invertHash(hash)`);
+console.log("Expected:{ 'a': 1, 'b': 2");
+console.log("Actual:", invertHash({1: "a", 2: "b"}));
+
 //
 
 function reverseString(str){
     let word = str.split('');
-    let reverseWord ='';
-    console.log(reverseWord);
-    for (let i=word.length; 0<=i; i--){
-    // for (let i=0; i<word.length; i++){
+    let reverseWord = '';
+    // console.log(reverseWord);
+    for (let i=word.length-1; i >= 0; i--){
+    // for (let i=0; i < word.length; i++){
         reverseWord += word[i];
-        console.log(reverseWord);
+        // console.log(reverseWord);
     }
     return reverseWord;
 }
@@ -49,3 +55,51 @@ console.log("_".repeat(80));
 console.log(`Executing: reverseStr(str)`);
 console.log("Expected: erutaerc");
 console.log("Actual:", reverseString("creature"));
+
+// console.log(1 + 2 + "3" + "4" + 5 + 6);
+
+function removeBlanks(str){
+    let noBlanksStr = "";
+    let regex = /^[A-Za-z]+$/;
+    // let strLst = str.split(" ")
+    for (let i = 0; i < str.length; i++){
+        if (str[i] === str.match(regex)) {
+            console.log("inside the regex loop")
+            noBlanksStr += str[i];
+            console.log(noBlanksStr)
+        } else {
+            continue;
+        }
+    }
+    console.log(noBlanksStr);
+    // return str;
+}
+console.log("_".repeat(80));
+console.log(`Executing: removeBlanksBuiltIn(str)`);
+console.log("Expected: '   play  that   Funky    Music  '");
+console.log("Actual:", removeBlanks("   play  that   Funky    Music  "));
+
+
+// Create a function that, given a string, returns the string's acronym (first letters only
+// capitalized). Given 'there's no free lunch - gotta pay yer way', return "TNFL-GYPW". Given
+// "Live from New York, it's Saturday Night!", returns "LFNYISN". 
+
+function acronyms(str){
+    let acronym = "";
+    let strLst = str.split(" ");
+    // console.log(strLst);
+    for (let i=0; i < strLst.length; i++){
+        acronym += strLst[i][0];
+    }
+    acronym = acronym.toUpperCase();
+    return acronym;
+}
+console.log("_".repeat(80));
+console.log(`Executing: acronyms(str)`);
+console.log("Expected: 'TNFL-GYPW'");
+console.log("Actual:", acronyms("there's no free lunch - gotta pay yer way"));
+
+console.log("_".repeat(80));
+console.log(`Executing: acronyms(str)`);
+console.log("Expected: 'LFNYISN'");
+console.log("Actual:", acronyms("Live from New York, it's Saturday Night!"));
