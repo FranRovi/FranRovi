@@ -1,0 +1,110 @@
+  /***** Normalization *****/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #00aeef;
+    color:white;
+    font-family: 'Montserrat', sans-serif;
+}
+div{
+    margin-top: 5%;
+}
+
+input{
+    margin-bottom: 15px;
+    height:38px;
+}
+
+img{
+    height: 82px;
+    width:70px;
+    margin-right:75px;
+}
+
+h1 {
+    color:#00204f;
+    font-weight: 900;
+}
+
+h2 {
+    color:white;
+}
+
+  /***** Header *****/
+#header{
+    margin:20px 0 0 50px;
+    align-items: center;
+    font-weight:100;
+}
+
+#header div{
+    margin: 0;
+    color:white;
+}
+
+#header div ul {
+    list-style-type: none;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+
+#header div ul li{
+    padding: 0 auto;
+    justify-content: space-evenly;
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: 300;
+
+}
+
+.col{
+    flex:1;
+}
+
+.header_links{
+    width:100%;
+}
+
+  /***** Buttons *****/
+.btn {
+    border: 2px solid #00204f;
+    background-color: white;
+    color: #00204f;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.blue {
+    border-color: #00204f;
+    color: #00204f;
+}
+
+.blue:hover {
+    background-color: #00204f;
+    color: white;
+}
+
+  /***** Validation Message *****/
+.text_warning{
+    color:red;
+    margin: 10px auto;
+    font-size: 18px;
+}
+
+.hide{
+    display:none;
+}
+
+  /***** Result *****/
+#fibo_result{
+    margin: 0 auto;
+    width: 90%;
+    color:white;
+    overflow-wrap: break-word;
+    padding-bottom:35px;
+}
