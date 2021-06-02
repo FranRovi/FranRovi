@@ -58,26 +58,27 @@ console.log("Actual:", reverseString("creature"));
 
 // console.log(1 + 2 + "3" + "4" + 5 + 6);
 
-function removeBlanks(str){
-    let noBlanksStr = "";
-    let regex = /^[A-Za-z]+$/;
-    // let strLst = str.split(" ")
-    for (let i = 0; i < str.length; i++){
-        if (str[i] === str.match(regex)) {
-            console.log("inside the regex loop")
-            noBlanksStr += str[i];
-            console.log(noBlanksStr)
-        } else {
-            continue;
-        }
-    }
-    console.log(noBlanksStr);
-    // return str;
-}
-console.log("_".repeat(80));
-console.log(`Executing: removeBlanksBuiltIn(str)`);
-console.log("Expected: '   play  that   Funky    Music  '");
-console.log("Actual:", removeBlanks("   play  that   Funky    Music  "));
+// function removeBlanks(str){
+//     let strLst = str.split("");
+//     let noBlanksStr = "";
+//     let regex = /^[A-Za-z]/;
+//     // let strLst = str.split(" ")
+//     for (let i = 0; i < strLst.length; i++){
+//         if (strLst[i] === strLst.test(regex)) {
+//             console.log("inside the regex loop")
+//             noBlanksStr += strLst[i];
+//             console.log(noBlanksStr)
+//         } else {
+//             continue;
+//         }
+//     }
+//     console.log(noBlanksStr);
+//     // return str;
+// }
+// console.log("_".repeat(80));
+// console.log(`Executing: removeBlanksBuiltIn(str)`);
+// console.log("Expected: '   play  that   Funky    Music  '");
+// console.log("Actual:", removeBlanks("   play  that   Funky    Music  "));
 
 
 // Create a function that, given a string, returns the string's acronym (first letters only
@@ -103,3 +104,47 @@ console.log("_".repeat(80));
 console.log(`Executing: acronyms(str)`);
 console.log("Expected: 'LFNYISN'");
 console.log("Actual:", acronyms("Live from New York, it's Saturday Night!"));
+
+
+// Create a function that, given an input string, returns a boolean whether parenthes in
+// that string are valid. Given input "y(3(p)p(3)r)s", return true. Given "n(0(p)", return
+// false. Given "n)0(t(0)k", return
+
+function parensValid(str){
+    let frequency = {
+        '(': 0,
+        ')': 0,
+    };
+    let strLst = str.split("");
+    for (let i=0; i < strLst.length; i++) {
+        if (strLst[i] === '(' || strLst[i] === ')') {
+            if(strLst[i] in frequency){
+                frequency[strLst[i]]++;
+            } 
+            // console.log(frequency);
+            if (frequency[')'] > frequency['(']) {
+                return false;
+            }
+        }
+    }
+    if (frequency['('] === frequency[')']) {
+        return true;
+    } else {
+        return false;
+    }
+}
+console.log("_".repeat(80));
+console.log(`Executing: parensValid(str)`);
+console.log("Expected: true");
+console.log("Actual:", parensValid("y(3(p)p(3)r)s"));
+
+console.log("_".repeat(80));
+console.log(`Executing: parensValid(str)`);
+console.log("Expected: false");
+console.log("Actual:", parensValid("n(0(p)3"));
+
+console.log("_".repeat(80));
+console.log(`Executing: parensValid(str)`);
+console.log("Expected: false");
+console.log("Actual:", parensValid("n)0(t(0)k"));
+
