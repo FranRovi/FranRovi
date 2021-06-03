@@ -25,7 +25,6 @@ function invertHash(hash){
     for (let element in hash){
         invertHash[hash[element]] = element;
     }
-    // console.log(hash);
     return invertHash;
 }
 console.log("_".repeat(80));
@@ -45,9 +44,7 @@ function reverseString(str){
     let reverseWord = '';
     // console.log(reverseWord);
     for (let i=word.length-1; i >= 0; i--){
-    // for (let i=0; i < word.length; i++){
         reverseWord += word[i];
-        // console.log(reverseWord);
     }
     return reverseWord;
 }
@@ -56,30 +53,59 @@ console.log(`Executing: reverseStr(str)`);
 console.log("Expected: erutaerc");
 console.log("Actual:", reverseString("creature"));
 
-// console.log(1 + 2 + "3" + "4" + 5 + 6);
+// Create a function that, given a string, returns the string without blanks. Given
+// "   play  that   Funky    Music  ", returns a string containing "playthatFunkyMusic". 
 
-// function removeBlanks(str){
-//     let strLst = str.split("");
-//     let noBlanksStr = "";
-//     let regex = /^[A-Za-z]/;
-//     // let strLst = str.split(" ")
-//     for (let i = 0; i < strLst.length; i++){
-//         if (strLst[i] === strLst.test(regex)) {
-//             console.log("inside the regex loop")
-//             noBlanksStr += strLst[i];
-//             console.log(noBlanksStr)
-//         } else {
-//             continue;
-//         }
-//     }
-//     console.log(noBlanksStr);
-//     // return str;
-// }
-// console.log("_".repeat(80));
-// console.log(`Executing: removeBlanksBuiltIn(str)`);
-// console.log("Expected: '   play  that   Funky    Music  '");
-// console.log("Actual:", removeBlanks("   play  that   Funky    Music  "));
+function removeBlanks(str){
+    let noBlanksStr = "";
+    let strLst = str.split("");
+    for (let i = 0; i < strLst.length; i++){
+        if (strLst[i] !== " ") {
+            noBlanksStr += strLst[i];
+        } else {
+            continue;
+        }
+    }
+    return noBlanksStr;
+}
 
+console.log("_".repeat(80));
+console.log(`Executing: removeBlanks(str)`);
+console.log("Expected: '   play  that   Funky    Music  '");
+console.log("Actual:", removeBlanks("   play  that   Funky    Music  "));
+
+// Solution using regex
+
+function removeBlanksRegex(str){
+    let regex = /\S/g;
+    let noBlanksStrList = str.match(regex);
+    let noBlanksStr = noBlanksStrList.join("");
+    return noBlanksStr;
+}
+
+console.log("_".repeat(80));
+console.log(`Executing: removeBlanksRegex(str)`);
+console.log("Expected: '   play  that   Funky    Music  '");
+console.log("Actual:", removeBlanksRegex("   play  that   Funky    Music  "));
+
+// Create a function that, given a string, returns the integer made from the string's
+// digit. Given "0s1a3y5w7h9a2t4?6!8?0", the function should return then number 1,357,924,680.
+
+function getStringDigit(str){
+    let strDigit = "";
+    let strDigitLst = str.split("");
+    for (let i=0; i < strDigitLst.length; i++){
+        if (!isNaN(strDigitLst[i])){
+            strDigit += strDigitLst[i]
+        }
+    }
+    let digit = parseInt(strDigit);
+    return digit.toLocaleString();
+}
+console.log("_".repeat(80));
+console.log(`Executing: getStringDigit(str)`);
+console.log("Expected: 1,357,924,680");
+console.log("Actual:", getStringDigit("0s1a3y5w7h9a2t4?6!8?0"));
 
 // Create a function that, given a string, returns the string's acronym (first letters only
 // capitalized). Given 'there's no free lunch - gotta pay yer way', return "TNFL-GYPW". Given
@@ -88,7 +114,6 @@ console.log("Actual:", reverseString("creature"));
 function acronyms(str){
     let acronym = "";
     let strLst = str.split(" ");
-    // console.log(strLst);
     for (let i=0; i < strLst.length; i++){
         acronym += strLst[i][0];
     }
@@ -121,7 +146,6 @@ function parensValid(str){
             if(strLst[i] in frequency){
                 frequency[strLst[i]]++;
             } 
-            // console.log(frequency);
             if (frequency[')'] > frequency['(']) {
                 return false;
             }
