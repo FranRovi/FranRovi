@@ -100,7 +100,7 @@ function getStringDigit(str){
         }
     }
     let digit = parseInt(strDigit);
-    return digit.toLocaleString();
+    return digit;
 }
 console.log("_".repeat(80));
 console.log(`Executing: getStringDigit(str)`);
@@ -122,14 +122,13 @@ function acronyms(str){
 }
 console.log("_".repeat(80));
 console.log(`Executing: acronyms(str)`);
-console.log("Expected: 'TNFL-GYPW'");
+console.log("Expected: 'TNFL-GPYW'");
 console.log("Actual:", acronyms("there's no free lunch - gotta pay yer way"));
 
 console.log("_".repeat(80));
 console.log(`Executing: acronyms(str)`);
 console.log("Expected: 'LFNYISN'");
 console.log("Actual:", acronyms("Live from New York, it's Saturday Night!"));
-
 
 // Create a function that, given an input string, returns a boolean whether parenthes in
 // that string are valid. Given input "y(3(p)p(3)r)s", return true. Given "n(0(p)", return
@@ -172,3 +171,125 @@ console.log(`Executing: parensValid(str)`);
 console.log("Expected: false");
 console.log("Actual:", parensValid("n)0(t(0)k"));
 
+// Given a string, returns whether the sequence of various parenthesis, braces and brackets
+// within it are valid. For exmaple, given the input string "w(a{t}s[o(n{c}o)m]e)h[e{r}e]!", return true. 
+// Given "d(i{a}l[t]o)n{e", return false. Given "a(1)s[0(n]0{t)0}k", return false.
+
+function bracesValid(str){
+    let frequency = {
+        '(': 0,
+        ')': 0,
+        '[': 0,
+        ']': 0,
+        '{': 0,
+        '}': 0,
+    };
+    let strLst = str.split("");
+    for (let i=0; i < strLst.length; i++) {
+        if (strLst[i] === '(' || strLst[i] === ')' || strLst[i] === '[' || strLst[i] === ']' || strLst[i] === '{' || strLst[i] === '}') {
+            if(strLst[i] in frequency){
+                frequency[strLst[i]]++;
+            } 
+            // if (frequency[')'] > frequency['(']) {
+            //     return false;
+            // }
+        }
+    }
+    console.log(frequency);
+    // if (frequency['('] === frequency[')'] || frequency['['] === frequency[']'] || frequency['{'] === frequency['}']) {
+    //     return true;
+    // } else {
+    //     return false;
+    // }
+}
+console.log("_".repeat(80));
+console.log(`Executing: bracesValid(str)`);
+console.log("Expected: true");
+console.log("Actual:", bracesValid("w(a{t}s[o(n{c}o)m]e)h[e{r}e]!"));
+
+console.log("_".repeat(80));
+console.log(`Executing: bracesValid(str)`);
+console.log("Expected: false");
+console.log("Actual:", bracesValid("d(i{a}l[t]o)n{e"));
+
+console.log("_".repeat(80));
+console.log(`Executing: bracesValid(str)`);
+console.log("Expected: false");
+console.log("Actual:", bracesValid("a(1)s[0(n]0{t)0}k"));
+
+
+// Create a function that returns a boolean wether the string is a strict palindrom. For
+// "a x a" or "racecar", return true. Do not ignore spaces, punctuation and capitalization:
+// if given "Dud" or "oho!", return false. 
+
+function isPalindrome(str){
+    strLst = str.split("");
+    // console.log(strLst);
+    for (let i = 0, j = strLst.length-1; i < (strLst.length-1) / 2; i++, j--) {
+        // console.log(`strLst[${i}]:${strLst[i]} strLst[${j}]:${strLst[j]} `)
+        if (strLst[i] !== strLst[j]) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+}
+console.log("_".repeat(80));
+console.log(`Executing: isPalindrome(str)`);
+console.log("Expected: true");
+console.log("Actual:", isPalindrome("a x a"));
+
+console.log("_".repeat(80));
+console.log(`Executing: isPalindrome(str)`);
+console.log("Expected: true");
+console.log("Actual:", isPalindrome("racecar"));
+
+console.log("_".repeat(80));
+console.log(`Executing: isPalindrome(str)`);
+console.log("Expected: false");
+console.log("Actual:", isPalindrome("Dud"));
+
+console.log("_".repeat(80));
+console.log(`Executing: isPalindrome(str)`);
+console.log("Expected: false");
+console.log("Actual:", isPalindrome("oho!"));
+
+
+// Write a function that given a sorted array of page numbers, return a string representing
+// a book index. Combine consecutive pages to create ranges. Given [1, 3, 4, 5, 7, 8, 10]
+// return the string "1, 3-5, 7-8, 10". 
+
+function bookIndex(arr){
+    strIdx = "";
+    for (let i = 0; i < arr.length; i++){
+        if (arr[i+1] !== arr[i]+1) {
+            strIdx += arr[i];
+        } else {
+            initRange = arr[i];
+            endRange = arr[i];
+            while (arr[i+1] === arr[i]+1) {
+                endRange++;
+                i++;
+            }
+            strIdx += initRange + "-" + endRange;
+        }
+    }
+    return strIdx;
+}
+console.log("_".repeat(80));
+console.log(`Executing: bokIndex(arr)`);
+console.log("Expected: '1, 3-5, 7-8, 10'");
+console.log("Actual:", bookIndex([1, 3, 4, 5, 7, 8, 10]));
+
+console.log("_".repeat(80));
+console.log(`Executing: bokIndex(arr)`);
+console.log("Expected: '1-3, 7, 9'");
+console.log("Actual:", bookIndex([1, 2, 3, 7, 9]));
+
+console.log("_".repeat(80));
+console.log(`Executing: bokIndex(arr)`);
+console.log("Expected: '1, 4-7'");
+console.log("Actual:", bookIndex([1, 4, 5, 6, 7]));
+
+// module.exports = acronyms;
+// module.exports = getStringDigit; 
