@@ -5,7 +5,8 @@
     box-sizing: border-box;
 }
 body{
-    background-color: #00aeef;
+    background-color: #66757b;
+    
     color:white;
     font-family: 'Montserrat', sans-serif;
 }
@@ -19,8 +20,8 @@ input{
 }
 
 img{
-    height: 82px;
-    width:70px;
+    height: 200px;
+    width:auto;
     margin-right:75px;
 }
 
