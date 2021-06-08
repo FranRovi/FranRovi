@@ -1,0 +1,19 @@
+.red{
+    color:red;
+    width:20%;
+}
+
+.green{
+    color:green;
+    height:30px;
+}
+
+.blue{
+    color:blue;
+    width:80%;
+}
+
+.row{
+    display:flex;
+    justify-content: center;
+}
