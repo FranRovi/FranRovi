@@ -293,3 +293,56 @@ console.log("Actual:", bookIndex([1, 4, 5, 6, 7]));
 
 // module.exports = acronyms;
 // module.exports = getStringDigit; 
+
+// Create a function that, given a string and array of 'naughty words', returns a new string
+// with all naughty words changed to "x" characters. Example: given ("Snap crackle pop nicompoop!",
+// ["crack", "poop"]), return "Snap xxxxxle pop nincomxxxx!"
+
+function censor(str, arr){
+    let newStr = "";
+    let strLst = str.split(" ");
+    for (let i=0; i < strLst.length; i++){
+        acronym += strLst[i][0];
+    }
+    
+    return newString;
+}
+console.log("_".repeat(80));
+console.log(`Executing: acronyms(str)`);
+console.log("Expected: 'TNFL-GPYW'");
+console.log("Actual:", acronyms("there's no free lunch - gotta pay yer way"));
+
+function isPermutation(str1, str2){
+    let str1Lst = str1.split("")
+    let dicStr1 = {};
+    let str2Lst = str2.split("")
+    let dicStr2 = {};
+    
+    for (let i=0;i<str1.length;i++){
+        if (dicStr1.hasOwnProperty(str1[i] === undefined)){
+            dicStr1[str1Lst[i]] = 1;
+        } else {
+            dicStr1[str1Lst[i]]++;
+        }
+    }
+
+    for (let i=0;i<str2.length;i++){
+        if (dicStr2.hasOwnProperty(str2[i] === undefined)){
+            dicStr2[str2Lst[i]] = 1;
+        } else {
+            dicStr2[str2Lst[i]] += 1;
+        }
+    }
+    console.log(dicStr1);
+    console.log(dicStr2);
+    // return dicStr1;
+}
+console.log("_".repeat(80));
+console.log(`Executing: isPermutation(str1, str2)`);
+console.log("Expected: true");
+console.log("Actual:", isPermutation("mister", "stimer"));
+
+// console.log("_".repeat(80));
+// console.log(`Executing: isPermutation(str)`);
+// console.log("Expected: false");
+// console.log("Actual:", isPermutation("mister", "sister"));
