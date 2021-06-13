@@ -315,11 +315,16 @@ console.log("Actual:", acronyms("there's no free lunch - gotta pay yer way"));
 function isPermutation(str1, str2){
     let str1Lst = str1.split("")
     let dicStr1 = {};
+
     let str2Lst = str2.split("")
     let dicStr2 = {};
+
+    // if (str1Lst.length !== str2Lst.length){
+    //     return false;
+    // } 
     
     for (let i=0;i<str1.length;i++){
-        if (dicStr1.hasOwnProperty(str1[i] === undefined)){
+        if (!dicStr1[str1Lst[i]]){
             dicStr1[str1Lst[i]] = 1;
         } else {
             dicStr1[str1Lst[i]]++;
@@ -327,7 +332,7 @@ function isPermutation(str1, str2){
     }
 
     for (let i=0;i<str2.length;i++){
-        if (dicStr2.hasOwnProperty(str2[i] === undefined)){
+        if (!dicStr2[str2Lst[i]]){
             dicStr2[str2Lst[i]] = 1;
         } else {
             dicStr2[str2Lst[i]] += 1;
@@ -342,7 +347,7 @@ console.log(`Executing: isPermutation(str1, str2)`);
 console.log("Expected: true");
 console.log("Actual:", isPermutation("mister", "stimer"));
 
-// console.log("_".repeat(80));
-// console.log(`Executing: isPermutation(str)`);
-// console.log("Expected: false");
-// console.log("Actual:", isPermutation("mister", "sister"));
+console.log("_".repeat(80));
+console.log(`Executing: isPermutation(str)`);
+console.log("Expected: false");
+console.log("Actual:", isPermutation("mister", "sister"));
