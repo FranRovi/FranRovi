@@ -351,3 +351,29 @@ console.log("_".repeat(80));
 console.log(`Executing: isPermutation(str)`);
 console.log("Expected: false");
 console.log("Actual:", isPermutation("mister", "sister"));
+
+function allPermutations(str){
+    let allPermutationsLst = [];
+    let strLst = str.split("")
+    // console.log(strLst);
+
+    for (let i = 0;i <strLst.length;i++){
+        let currPermut = strLst[i];
+        // console.log(currPermut);
+        for (let j = 0;j <strLst.length;j++){
+            if (i === j) {
+                continue
+            } else {
+                currPermut += strLst[j];
+                // console.log(currPermut);
+            }
+        }
+        allPermutationsLst.push(currPermut);
+    }
+    return allPermutationsLst
+}
+
+console.log("_".repeat(80));
+console.log(`Executing: isAllPermutation(str)`);
+console.log("Expected: [meat, ...]");
+console.log("Actual:", allPermutation("team"));
