@@ -1,0 +1,8 @@
+.card {
+    margin: 20px auto;
+    color:rgb(13, 65, 155);
+    background: lightgray;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    border-radius: 50px;
+    list-style-type: none;
+}
