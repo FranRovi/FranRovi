@@ -13,11 +13,12 @@ function App() {
   };
 
   return (
-    <div>
+    // Can algo write short version for this <> </> is project settings are properly set.
+    <React.Fragment>
       {/* <h1>Hello World!</h1> */}
       <AddUser onAddUser={addUserHandler} />
       <UsersList users={usersList} />
-    </div>
+    </React.Fragment>
   );
 }
 

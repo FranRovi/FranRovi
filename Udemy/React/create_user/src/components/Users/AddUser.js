@@ -1,36 +1,50 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Card from '../UI/Card';
 import Button from '../UI/Button';
-import ErrorModal from '../UI/ErrorModal'
+import ErrorModal from '../UI/ErrorModal';
+import Wrapper from '../Helpers/Wrapper';
 import classes from './AddUser.module.css';
 
 
 const AddUser = (props) => {
-    const [enteredUsername, setEnteredUsername] = useState('');
-    const [enteredAge, setEnteredAge] = useState('');
+    const  nameInputRef = useRef();
+    const  ageInputRef = useRef();
+
+    // const [enteredUsername, setEnteredUsername] = useState('');
+    // const [enteredAge, setEnteredAge] = useState('');
+
     const [hasError, setHasError] = useState();
 
     const addUserHandler = (event) => {
         // console.log("addUserHandler function called")
         event.preventDefault();
-        if (enteredUsername.trim().length === 0 || enteredAge.trim().length === 0) {
+        const refEnteredName = nameInputRef.current.value;
+        const refEnteredAge = ageInputRef.current.value;
+
+        if (refEnteredName.trim().length === 0 || refEnteredAge.trim().length === 0) {
             setHasError({
                 title: "Invalid input",
                 message: "Please enter a valid name and age (non-empty values)"
             });
             return;
         }
-        if (+enteredAge < 1) {
+        if (+refEnteredAge < 1) {
             setHasError({
                 title: "Invalid age",
                 message: "Please enter a valid age (age must be greater than zero)"
             });
             return;
         }
-        console.log(enteredUsername, enteredAge);
-        props.onAddUser(enteredUsername, enteredAge);
-        setEnteredUsername("");
-        setEnteredAge("");
+        props.onAddUser(refEnteredName, refEnteredAge);
+        // setEnteredUsername("");
+        // setEnteredAge("");
+        // ONE SHOULD RARELY CHANGE THE DOM DIRECTLY, SHOULD USE REACT TO DO SO
+        // BUT IN THIS CASE SINCE WE ARE ONLY CLEANING AN INPUT FIELD, ONE MAY ARGUE
+        // THAT WE ARE NOT CHANGING THE DOM (CREATING OR DELETING AN ELEMENT OR 
+        // ADDING OR REMOVING A CLASS)
+        nameInputRef.current.value = '';
+        ageInputRef.current.value = '';
+
 
 
         // if (enteredUsername.trim().length === 0) {
@@ -54,31 +68,33 @@ const AddUser = (props) => {
         // setEnteredAge("");
     }
 
-    const usernameChangeHandler = (event) => {
-        setEnteredUsername(event.target.value)
-    }
+    // const usernameChangeHandler = (event) => {
+    //     setEnteredUsername(event.target.value)
+    // }
 
-    const ageChangeHandler = (event) => {
-        setEnteredAge(event.target.value)
-    }
+    // const ageChangeHandler = (event) => {
+    //     setEnteredAge(event.target.value)
+    // }
 
     const errorHandler = () => {
         setHasError(null);
     }
 
     return(
-        <div>
+        <Wrapper>
             {hasError && <ErrorModal title={hasError.title} message={hasError.message} onConfirm={errorHandler}/>}
             <Card className={classes.input}>
                 <form onSubmit={addUserHandler}>
                     <label htmlFor="username">Username</label>
-                    <input id ="username" type="text" value={enteredUsername} onChange={usernameChangeHandler}/>
+                    {/* <input id ="username" type="text" value={enteredUsername} onChange={usernameChangeHandler} ref={nameInputRef} /> */}
+                    <input id ="username" type="text" ref={nameInputRef} />
                     <label htmlFor="age">Age (Years)</label>
-                    <input id ="age" type="number" value={enteredAge} onChange={ageChangeHandler}/>
+                    {/* <input id ="age" type="number" value={enteredAge} onChange={ageChangeHandler} ref={ageInputRef} /> */}
+                    <input id ="age" type="number" ref={ageInputRef} />
                     <Button type="submit">Add User</Button>
                 </form>
             </Card>
-        </div>
+        </Wrapper>
     )
 }
 
