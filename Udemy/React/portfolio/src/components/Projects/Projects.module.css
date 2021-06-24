@@ -1,0 +1,43 @@
+.pt {
+    padding-top: 120px;
+    color: black;
+}
+
+.red-font{
+    color: red;
+}
+
+
+.project-title{
+    padding-top: 25px;
+    height: 75px;
+    text-transform: capitalize;
+    word-spacing: 3px;
+    letter-spacing: 2px;
+    text-decoration: underline;
+    font-size: 32px;
+    color:rgb(27, 54, 96)
+    /* align-items: center; */
+}
+
+.project-description{
+    padding-top: 25px;
+    width: 85%;
+    text-align: justify;
+    font-size: 16px;
+    line-height: 1.3;
+    /* align-items: center; */
+}
+
+li {
+    color:black;
+}
+
+/* .project-background
+    :nth-child(odd) {
+    color: orange;
+} */
+
+img {
+    height:350px;
+}

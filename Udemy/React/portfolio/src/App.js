@@ -1,36 +1,43 @@
 import React from 'react';
 
-import Projects from './components/Projects';
+import MainHeader from './components/MainHeader/MainHeader';
+import Projects from './components/Projects/Projects';
+import projectImage from './assets/project.jpg';
 
 
 import './App.css';
 
 function App() {
+  
   const projects = [
     {
         id: 1,
         name: "Severance Payment Calculator",
-        description: "Severance Payment Calculator description"
+        description: "This application enables users to calculate worker’s severance payments depending on the input data provided, such as reason for employment termination or jurisdiction, in accordance with Argentine labor law. Users are able to store all of the calculations performed in the account they create. For this project I wrote the front-end with HTML, CSS and Bootstrap, the back-end with Python. The data provided by the user is stored in a SQL database, and the application is run in Django.",
+        image: {projectImage}
     },
     {
         id: 2,
         name: "E-Commerce Marketplace",
-        description: "E-Commerce Marketplace description"
+        description: "This project allows users to create an account, and add (publicitar en una bolsa con todos los productos de todos los usuarios) sports goods they want to sell. Additionally, Users can edit the product created by themselves. For this application I wrote the front-end with JSP, CSS and Bootstrap, the back-end with Java. The data provided by the user is stored in a SQL database, and the application is run in Spring.",
+        image: {projectImage}
     },
     {
         id: 3,
         name: "Tic Tac Toe",
-        description: "Tic Tac Toe description"
+        description: "Coming soon!",
+        image: {projectImage}
     },
     {
         id: 4,
         name: "Pig Game",
-        description: "Pig Game description"
+        description: "This project allows users to create an account, and add (publicitar en una bolsa con todos los productos de todos los usuarios) sports goods they want to sell. Additionally, Users can edit the product created by themselves. For this application I wrote the front-end with JSP, CSS and Bootstrap, the back-end with Java. The data provided by the user is stored in a SQL database, and the application is run in Spring.",
+        image: {projectImage}
     }
   ];
   return (
     <div className="App">
-      <h1>Hello World!</h1>
+      <MainHeader />
       <Projects projectsInfo={projects}/>
     </div>
   );

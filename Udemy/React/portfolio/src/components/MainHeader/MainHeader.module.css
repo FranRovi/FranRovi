@@ -1,0 +1,46 @@
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5.5em;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background: #323131;
+    padding: 0 3rem;
+    padding-bottom: 5px;
+}
+
+.main-header h1 , h2 {
+    color: white;
+}
+
+.main-row{
+    display: flex;
+}
+
+.main-links-center{
+    align-items:center;
+}
+
+.main-links{
+    width: 100%;
+    display: flex;
+    list-style-type: none;
+    justify-content: flex-end;
+    
+}
+
+.main-mr{
+    width:350px;
+    margin-right: 70%;
+}
+li{
+    padding: 0 4rem;
+}
+
+.main-link-white {
+    color: white;
+}
+
