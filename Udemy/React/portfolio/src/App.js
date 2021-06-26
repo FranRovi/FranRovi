@@ -3,6 +3,7 @@ import React from 'react';
 import MainHeader from './components/MainHeader/MainHeader';
 import Projects from './components/Projects/Projects';
 import AboutMe from './components/AboutMe/AboutMe';
+import ContactMe from './components/ContactMe/ContactMe';
 import projectImage from './assets/project.jpg';
 
 
@@ -41,6 +42,7 @@ function App() {
       <MainHeader />
       <AboutMe />
       <Projects projectsInfo={projects}/>
+      <ContactMe />
     </div>
   );
 }
