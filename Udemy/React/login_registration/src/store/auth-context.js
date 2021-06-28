@@ -10,9 +10,9 @@ export const AuthContextProvider = (props) => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     useEffect(()=> {
-        const storedUserLoggedInInfo = localStorage.getItem('isLoggedIn');
+        const storedUserLoggedInInformation = localStorage.getItem('isLoggedIn');
 
-        if (storedUserLoggedInInfo === '1'){
+        if (storedUserLoggedInInformation === '1'){
             setIsLoggedIn(true);
         }
     }, []);
@@ -27,7 +27,16 @@ export const AuthContextProvider = (props) => {
         setIsLoggedIn(true);
     }
 
-    return <AuthContext.Provider value={{isLoggedIn: isLoggedIn, onLogout: logoutHandler, onLogin: loginHandler }}>{props.children}</AuthContext.Provider>
-}
+    return (
+    <AuthContext.Provider 
+        value={{
+            isLoggedIn: isLoggedIn,
+            onLogout: logoutHandler,
+            onLogin: loginHandler }}
+        >
+            {props.children}
+            
+    </AuthContext.Provider>);
+};
 
 export default AuthContext;

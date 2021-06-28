@@ -11,12 +11,12 @@ const Input = React.forwardRef((props, ref) => {
 
     useImperativeHandle(ref, () => {
         return {
-            focus: activate
+            focus: activate,
         };    
     });
 
     return(
-        <React.Fragment>
+        // <React.Fragment>
             <div
                 className={`${classes.control} ${
                 props.isValid === false ? classes.invalid : ''
@@ -32,7 +32,7 @@ const Input = React.forwardRef((props, ref) => {
                     onBlur={props.onBlur}
                 />
             </div>
-        </React.Fragment>
+        // </React.Fragment>
     );
 });
 
