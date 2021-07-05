@@ -33,10 +33,17 @@
     
 }
 
+.main-image {
+    border-radius: 50%;
+    height:75px;
+    padding-top: 8px;
+}
+
 .main-mr{
     width:350px;
     margin-right: 70%;
 }
+
 li{
     padding: 0 4rem;
 }
