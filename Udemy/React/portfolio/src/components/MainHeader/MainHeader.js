@@ -9,7 +9,8 @@ const MainHeader = (props) => {
     const aboutMeClickHandler = () => {
         setAboutMeIsClicked((prevAboutMe) => !prevAboutMe);
     };
-    console.log(aboutMeIsClicked);
+    props.onAboutMeState(aboutMeIsClicked);
+    // console.log(aboutMeIsClicked);
 
     return(
         <header className={classes['main-header']}>
@@ -26,7 +27,7 @@ const MainHeader = (props) => {
                     <div className={classes['main-links']}>
                         {/* <li className={classes['main-link-white']}></li>
                         <li className={classes['main-link-white']}></li> */}
-                        {<button className={classes['main-link-white']} aboutMeIsClicked={aboutMeIsClicked} onClick={aboutMeClickHandler}>About Me</button>}
+                        {<button className={classes['main-link-white']} onAboutMeBtnclicked={aboutMeIsClicked} onClick={aboutMeClickHandler}>About Me</button>}
                         <li className={classes['main-link-white']}>Projects</li>
                         <li className={classes['main-link-white']}>Contact</li>
                     </div>

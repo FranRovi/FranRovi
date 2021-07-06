@@ -10,6 +10,9 @@ import projectImage from './assets/project.jpg';
 import './App.css';
 
 function App() {
+
+  // usar useState para usar este valor asi me actualiza el component!!!!
+  let nacho = null;
   
   const projects = [
     {
@@ -37,11 +40,20 @@ function App() {
         image: {projectImage}
     }
   ];
+
+  const aboutMeStateHandler = (currentState) => {
+    // var aboutMeState = currentState;
+    nacho = currentState;
+    console.log(`nacho: ${nacho}`);
+    // console.log(currentState + ' in app.js');
+};
+
   return (
     <div className="App">
-      <MainHeader />
-      <AboutMe />
-      <Projects projectsInfo={projects}/>
+      {/* {AboutMeState && <MainHeader onAboutMeState={aboutMeStateHandler} />} */}
+      <MainHeader onAboutMeState={aboutMeStateHandler} />
+      {nacho  &&  <AboutMe />}
+      <Projects projectsInfo={projects}  />
       <ContactMe />
     </div>
   );
