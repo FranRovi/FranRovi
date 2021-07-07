@@ -1,3 +1,6 @@
+button {
+    padding: 0 4rem;
+}
 .main-header {
     position: fixed;
     top: 0;
@@ -12,9 +15,14 @@
     padding-bottom: 5px;
 }
 
-.main-header h1, h4 {
+.main-header h1 {
     color: white;
-    margin-right: 375px;
+    margin-right: 10em;
+}
+
+.main-header h4 {
+    color: white;
+    margin-right: 16em;
 }
 
 .main-row{
@@ -34,21 +42,19 @@
 }
 
 .main-image {
-    border-radius: 50%;
+    border-radius: 40%;
     height:75px;
     padding-top: 8px;
 }
 
 .main-mr{
-    width:350px;
+    width: 16em;
     margin-right: 70%;
 }
 
-li{
-    padding: 0 4rem;
-}
-
-.main-link-white {
+.main-btn {
+    background: none;
     color: white;
+    border: none;
 }
 

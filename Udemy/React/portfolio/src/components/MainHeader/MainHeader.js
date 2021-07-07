@@ -4,12 +4,22 @@ import classes from './MainHeader.module.css';
 import profilePic from '../../assets/profile.jpg';
 
 const MainHeader = (props) => {
-    const [aboutMeIsClicked, setAboutMeIsClicked] = useState(false);
+    const [aboutMeIsClicked, setAboutMeIsClicked] = useState(true);
+    const [projectsIsClicked, setProjectsIsClicked] = useState(false);
+    const [contactIsClicked, setContactIsClicked] = useState(false);
 
     const aboutMeClickHandler = () => {
         setAboutMeIsClicked((prevAboutMe) => !prevAboutMe);
     };
+    const projectsClickHandler = () => {
+        setProjectsIsClicked((prevAboutMe) => !prevAboutMe);
+    };
+    const contactClickHandler = () => {
+        setContactIsClicked((prevAboutMe) => !prevAboutMe);
+    };
     props.onAboutMeState(aboutMeIsClicked);
+    props.onProjectState(projectsIsClicked);
+    props.onContactState(contactIsClicked);
     // console.log(aboutMeIsClicked);
 
     return(
@@ -27,9 +37,12 @@ const MainHeader = (props) => {
                     <div className={classes['main-links']}>
                         {/* <li className={classes['main-link-white']}></li>
                         <li className={classes['main-link-white']}></li> */}
-                        {<button className={classes['main-link-white']} onAboutMeBtnclicked={aboutMeIsClicked} onClick={aboutMeClickHandler}>About Me</button>}
-                        <li className={classes['main-link-white']}>Projects</li>
-                        <li className={classes['main-link-white']}>Contact</li>
+                        {/* {<button className={classes['main-link-white']} onAboutMeBtnclicked={aboutMeIsClicked} onClick={aboutMeClickHandler}>About Me</button>} */}
+                        {<button className={classes['main-btn']} onClick={aboutMeClickHandler}>About Me</button>}
+                        {<button className={classes['main-btn']} onClick={projectsClickHandler}>Projects</button>}
+                        {<button className={classes['main-btn']} onClick={contactClickHandler}>Contact</button>}
+                        {/* <li className={classes['main-link-white']}>Projects</li>
+                        <li className={classes['main-link-white']}>Contact</li> */}
                     </div>
                 </ul>
             </nav>

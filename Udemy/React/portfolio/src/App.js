@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import MainHeader from './components/MainHeader/MainHeader';
 import Projects from './components/Projects/Projects';
@@ -10,9 +10,11 @@ import projectImage from './assets/project.jpg';
 import './App.css';
 
 function App() {
-
+  const [aboutMeState, setAboutMeState] = useState(true);
+  const [projectsState, setProjectsState] = useState(false);
+  const [contactState, setContactState] = useState(false);
   // usar useState para usar este valor asi me actualiza el component!!!!
-  let nacho = null;
+  // let nacho = null;
   
   const projects = [
     {
@@ -43,20 +45,28 @@ function App() {
 
   const aboutMeStateHandler = (currentState) => {
     // var aboutMeState = currentState;
-    nacho = currentState;
-    console.log(`nacho: ${nacho}`);
+    setAboutMeState(currentState);
+    // console.log(`nacho: ${nacho}`);
     // console.log(currentState + ' in app.js');
-};
+  }
+
+  const projectsStateHandler = (currentState) => {
+      setProjectsState(currentState);
+  }
+  const contactStateHandler = (currentState) => {
+    setContactState(currentState);
+  }
+
 
   return (
     <div className="App">
       {/* {AboutMeState && <MainHeader onAboutMeState={aboutMeStateHandler} />} */}
-      <MainHeader onAboutMeState={aboutMeStateHandler} />
-      {nacho  &&  <AboutMe />}
-      <Projects projectsInfo={projects}  />
-      <ContactMe />
+      <MainHeader onAboutMeState={aboutMeStateHandler} onProjectState={projectsStateHandler} onContactState={contactStateHandler} />
+      {aboutMeState  &&  <AboutMe />}
+      {projectsState && <Projects projectsInfo={projects}  />}
+      {contactState && <ContactMe />}
     </div>
   );
-}
+};
 
 export default App;
