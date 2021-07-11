@@ -26,11 +26,9 @@ const MainHeader = (props) => {
         <header className={classes['main-header']}>
             {/* <nav className={`${classes['main-row']} ${classes['main-links-center']}`}> */}
             <nav className={`${classes['main-row']} ${classes['main-links-center']}`}>
-                <div>
-                    <img src={profilePic} alt="portrait of myself" className={classes['main-image']}/>
-                </div>
+                <img src={profilePic} alt="portrait of myself" className={classes['main-image']}/>
                 <div>   
-                    <h1 className={classes['main-mr']}>Francisco Rovirosa</h1>
+                    <h1 className={classes['main-mr']}>Francisco Rovirosa</h1> 
                     <h4>Full-Stack Developer</h4>
                 </div>
                 <ul>
@@ -41,6 +39,7 @@ const MainHeader = (props) => {
                         {<button className={classes['main-btn']} onClick={aboutMeClickHandler}>About Me</button>}
                         {<button className={classes['main-btn']} onClick={projectsClickHandler}>Projects</button>}
                         {<button className={classes['main-btn']} onClick={contactClickHandler}>Contact</button>}
+                        <button className="btn btn-light">Button 4</button>
                         {/* <li className={classes['main-link-white']}>Projects</li>
                         <li className={classes['main-link-white']}>Contact</li> */}
                     </div>

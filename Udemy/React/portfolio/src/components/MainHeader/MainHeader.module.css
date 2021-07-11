@@ -1,5 +1,9 @@
+* {
+    font-family: 'Staatliches', cursive;
+}
+
 button {
-    padding: 0 4rem;
+    padding: 0 3rem;
 }
 .main-header {
     position: fixed;
@@ -48,13 +52,17 @@ button {
 }
 
 .main-mr{
-    width: 16em;
-    margin-right: 70%;
+    width: 12em;
+    /* margin-right: 20%; */
 }
 
 .main-btn {
     background: none;
+    min-width:3em;
     color: white;
     border: none;
 }
 
+.colorRed{
+    color:red;
+}

@@ -8,7 +8,7 @@ const Projects = (props) => {
     return(
         <div>
             <h2 className={classes.pt}> 
-                Here you will find some information about the projects I've been working lately
+                Find more about some information about the projects I've been working lately
             </h2>
             <ul>
                 {
